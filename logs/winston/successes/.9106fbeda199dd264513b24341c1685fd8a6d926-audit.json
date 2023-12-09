@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\GWC IDB\\Desktop\\cow-hut Assigment\\logs\\winston\\successes\\.9106fbeda199dd264513b24341c1685fd8a6d926-audit.json",
+    "files": [
+        {
+            "date": 1701519070927,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\cow-hut Assigment\\logs\\winston\\successes\\university-2023-02-12-18-sucess.log",
+            "hash": "6e043284e981475a46f06151632a3a5adab341667dd4dd31a866c03507249e44"
+        }
+    ],
+    "hashType": "sha256"
+}

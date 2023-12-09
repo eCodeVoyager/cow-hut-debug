@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 15
+    },
+    "auditLog": "C:\\Users\\GWC IDB\\Desktop\\cow-hut Assigment\\logs\\winston\\errors\\.e242e72824242eefc2b4eefd68f21d443a1f9712-audit.json",
+    "files": [
+        {
+            "date": 1701519070932,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\cow-hut Assigment\\logs\\winston\\errors\\university-2023-02-12-18-error.log",
+            "hash": "678d7e5b8bd5269b1e18fd5f1713afc10b837c3e112ec10732d556552fde7f36"
+        },
+        {
+            "date": 1702125182037,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\cow-hut Assigment\\logs\\winston\\errors\\university-2023-09-12-18-error.log",
+            "hash": "7f3b1c522c86f1e0ab029d823dc2d0cd673942bf04971e8d845c03b4106c1113"
+        }
+    ],
+    "hashType": "sha256"
+}

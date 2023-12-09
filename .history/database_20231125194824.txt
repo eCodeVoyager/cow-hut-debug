@@ -1,0 +1,3 @@
+database_password: jfFNqsEpnB8cLjXd
+
+database_uri = mongodb+srv://frombiplobhossen:<password>@cluster0.dax3xuc.mongodb.net/?retryWrites=true&w=majority

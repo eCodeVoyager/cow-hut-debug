@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\GWC IDB\\Desktop\\cow-hut Assigment\\logs\\winston\\successes\\.c6ae6e81727181cc07993b176951e9db71a449be-audit.json",
+    "files": [
+        {
+            "date": 1701519447858,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\cow-hut Assigment\\logs\\winston\\successes\\cow-hut-2023-02-12-18-sucess.log",
+            "hash": "1ad735f12b70dbdfd31c61effb8df5f2bfb9d3ec371238c6c92afc3f42d64c87"
+        },
+        {
+            "date": 1702125182013,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\cow-hut Assigment\\logs\\winston\\successes\\cow-hut-2023-09-12-18-sucess.log",
+            "hash": "adf7fefd34254d4c5b3caedd9e422041aedd09274eac54f565d0a31a9fc6a938"
+        }
+    ],
+    "hashType": "sha256"
+}
