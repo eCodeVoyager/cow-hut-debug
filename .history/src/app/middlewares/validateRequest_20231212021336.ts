@@ -17,4 +17,4 @@ const validateRequest =
     }
   }
 
-export default validateRequest;
+eport default validateRequest;
