@@ -11,7 +11,7 @@ app.use(express.json());
 
 //application route
 app.use('/api/v1/users/', usersRouter)
-
+console.log(usersRouter)
 
 app.get("/", (req:Request, res:Response) => {
     res.send("application is running successfully");

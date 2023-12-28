@@ -6,19 +6,24 @@
     "auditLog": "C:\\Users\\GWC IDB\\Desktop\\cow-hut Assigment\\logs\\winston\\errors\\.e242e72824242eefc2b4eefd68f21d443a1f9712-audit.json",
     "files": [
         {
-            "date": 1701519070932,
-            "name": "C:\\Users\\GWC IDB\\Desktop\\cow-hut Assigment\\logs\\winston\\errors\\university-2023-02-12-18-error.log",
-            "hash": "678d7e5b8bd5269b1e18fd5f1713afc10b837c3e112ec10732d556552fde7f36"
-        },
-        {
-            "date": 1702125182037,
-            "name": "C:\\Users\\GWC IDB\\Desktop\\cow-hut Assigment\\logs\\winston\\errors\\university-2023-09-12-18-error.log",
-            "hash": "7f3b1c522c86f1e0ab029d823dc2d0cd673942bf04971e8d845c03b4106c1113"
-        },
-        {
             "date": 1702324306651,
             "name": "C:\\Users\\GWC IDB\\Desktop\\cow-hut Assigment\\logs\\winston\\errors\\university-2023-12-12-01-error.log",
             "hash": "c005d62c33c3de8340e0629df6321fec201042140a10707160a5b8c2d2739bd6"
+        },
+        {
+            "date": 1703103372146,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\cow-hut Assigment\\logs\\winston\\errors\\university-2023-21-12-02-error.log",
+            "hash": "b9f9f243e38c5d26d6c0228baf83a93f62a164389c6ca9138bdada45a54d3ada"
+        },
+        {
+            "date": 1703363153895,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\cow-hut Assigment\\logs\\winston\\errors\\university-2023-24-12-02-error.log",
+            "hash": "462b89a766685799ad3ee063a6d0c5f17ab98efb479f08aec4854efa6e2cde3a"
+        },
+        {
+            "date": 1703599643602,
+            "name": "C:\\Users\\GWC IDB\\Desktop\\cow-hut Assigment\\logs\\winston\\errors\\university-2023-26-12-20-error.log",
+            "hash": "0c00d1219d4ddda4cef1b110299b8124fdb1e03ff8fee6595a27a9c101254880"
         }
     ],
     "hashType": "sha256"

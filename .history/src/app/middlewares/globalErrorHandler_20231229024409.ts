@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import config from "../../config";
 import { IGenericErrorMessage } from "../../interface/interface";
-import handleValidationError from "../../errors/handleValidatoinError";
 
 const globalErrorHandler = (err, req: Request, res: Response) => {
 
@@ -10,16 +9,7 @@ const globalErrorHandler = (err, req: Request, res: Response) => {
     let errorMessages: IGenericErrorMessage[] = [];
 
     if (err?.name === 'ValidationError') {
-        const simplifiedError = handleValidationError(err);
-        statusCode = simplifiedError.statusCode;
-        message = simplifiedError.message;
-        errorMessages = simplifiedError.errorMessages
-    } else if (err.name === 'CastError') {
-        const simplifiedError = handleCastError()
-        statusCode = simplifiedError.statusCode;
-        message = simplifiedError.message;
-        errorMessages = simplifiedError.errorMessages;
-
+        const: 
     }
 
     res.status(statusCode).json({

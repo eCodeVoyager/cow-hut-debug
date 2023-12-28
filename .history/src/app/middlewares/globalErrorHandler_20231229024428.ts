@@ -10,16 +10,7 @@ const globalErrorHandler = (err, req: Request, res: Response) => {
     let errorMessages: IGenericErrorMessage[] = [];
 
     if (err?.name === 'ValidationError') {
-        const simplifiedError = handleValidationError(err);
-        statusCode = simplifiedError.statusCode;
-        message = simplifiedError.message;
-        errorMessages = simplifiedError.errorMessages
-    } else if (err.name === 'CastError') {
-        const simplifiedError = handleCastError()
-        statusCode = simplifiedError.statusCode;
-        message = simplifiedError.message;
-        errorMessages = simplifiedError.errorMessages;
-
+        const simplifiedError = handleValidationError();
     }
 
     res.status(statusCode).json({

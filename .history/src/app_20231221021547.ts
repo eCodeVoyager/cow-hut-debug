@@ -10,8 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //application route
-app.use('/api/v1/users/', usersRouter)
-
+app.use('/api/v1/users/',usersRouter )
 
 app.get("/", (req:Request, res:Response) => {
     res.send("application is running successfully");

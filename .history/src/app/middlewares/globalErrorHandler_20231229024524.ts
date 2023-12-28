@@ -14,12 +14,6 @@ const globalErrorHandler = (err, req: Request, res: Response) => {
         statusCode = simplifiedError.statusCode;
         message = simplifiedError.message;
         errorMessages = simplifiedError.errorMessages
-    } else if (err.name === 'CastError') {
-        const simplifiedError = handleCastError()
-        statusCode = simplifiedError.statusCode;
-        message = simplifiedError.message;
-        errorMessages = simplifiedError.errorMessages;
-
     }
 
     res.status(statusCode).json({
