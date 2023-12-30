@@ -1,15 +1,11 @@
-import { ErrorRequestHandler, Request, Response } from 'express'
+import { Request, Response } from 'express'
 import config from '../../config'
 import { IGenericErrorMessage } from '../../interface/interface'
 import handleValidationError from '../../errors/handleValidatoinError'
 import handleCastError from '../../errors/handleCastError'
 import ApiError from '../../errors/apiError'
 
-const globalErrorHandler: ErrorRequestHandler = (
-  err,
-  req: Request,
-  res: Response,
-) => {
+const globalErrorHandler = (err, req: Request, res: Response) => {
   let statusCode = 500
   let message = 'something went wrong'
   let errorMessages: IGenericErrorMessage[] = []
@@ -25,10 +21,11 @@ const globalErrorHandler: ErrorRequestHandler = (
     message = simplifiedError.message
     errorMessages = simplifiedError.errorMessages
   } else if (err instanceof Error) {
+     
     message = err?.message
     errorMessages = err.message ? [{ path: '', message: err?.message }] : []
   } else if (err instanceof ApiError) {
-    statusCode = err?.statuscode
+    statusCode = err?.statuscode;
     message = err?.message
     errorMessages = err?.message ? [{ path: '', message: err.message }] : []
   }

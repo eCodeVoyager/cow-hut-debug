@@ -2,9 +2,10 @@ import mongoose from 'mongoose'
 import app from './app'
 import config from './config'
 import { logger, errorLogger } from './shared/logger'
-import { Server } from 'http'
+/* import { Server } from 'http' */
 
-let server: Server
+
+let server: Server;
 async function main() {
   try {
     await mongoose.connect(config.database_url as string)
@@ -15,6 +16,19 @@ async function main() {
       logger.info(`app listening on port ${config.port}`)
     })
   } catch (error) {
-      errorLogger('database dont want to connect ', error)
+      errorLogger.error('database dont want to connect ', error)
   }
+
+  // if unhandled rejection happens then stop the server gracefully
+  process.on('unhandledRejection', error => {
+    if (server) {
+      server.close(() => {
+        console.error(error);
+        process.exit(0);
+      });
+    } else {
+      process.exit(1);
+    }
+  });
 }
+main();
