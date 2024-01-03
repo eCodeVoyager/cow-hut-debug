@@ -15,9 +15,8 @@ const createUser = async(payload: IUser):Promise<IUser> => {
 }
 
 
-const getSingleUser = async (id:string):Promise<IUser |null> => {
-    const result = await User.findById(id);
-    return result;
+const getSingleUser = async () => {
+
 }
 
 

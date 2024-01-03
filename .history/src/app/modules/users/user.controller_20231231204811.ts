@@ -10,7 +10,7 @@ const createUser = catchAsync(async (req: Request, res: Response) => {
     sendResponse(res, {
         statusCode:status.OK ,
         success: true,
-        message: "Successfully user has been created",
+        message: "Successfully user has been creted",
         data: result,
     });
 })
@@ -29,5 +29,4 @@ const getSingleUser = catchAsync(async (req: Request, res: Response) => {
 
 export const UserController = {
     createUser,
-    getSingleUser,
 }

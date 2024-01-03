@@ -6,6 +6,4 @@ const router = express.Router();
 
 router.post('/create-user', validateRequest(userValidation.createUserZodSchema), UserController.createUser);
 router.get("/:id", UserController.getSingleUser)
-
-
 export const UserRoutes = router;
