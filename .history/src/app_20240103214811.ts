@@ -19,7 +19,7 @@ app.get("/", (req:Request, res:Response) => {
 })
 
 app.use((req:Request, res: Response, next: NextFunction) => {
-    res.status(httpStatus.NOT_FOUND).json({
+    res.send(httpStatus.NOT_FOUND).json({
         success: false,
         message: "Ooops! not found",
         errorMessages: [{

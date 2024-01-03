@@ -1,4 +1,4 @@
-import express, {Application, NextFunction, Request, Response} from 'express';
+import express, {Application, Request, Response} from 'express';
 import cors from 'cors';
 import router from './routes';
 import httpStatus from 'http-status';
@@ -18,12 +18,12 @@ app.get("/", (req:Request, res:Response) => {
     res.send("application is running successfully");
 })
 
-app.use((req:Request, res: Response, next: NextFunction) => {
-    res.status(httpStatus.NOT_FOUND).json({
+app.use((req:Request, res: Response, next) => {
+    res.send(httpStatus.NOT_FOUND).json({
         success: false,
         message: "Ooops! not found",
         errorMessages: [{
-            path:req.originalUrl,
+            path: '.',
             message: 'api not found'
         }]
     });
