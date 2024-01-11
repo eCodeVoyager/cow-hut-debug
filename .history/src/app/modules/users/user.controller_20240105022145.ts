@@ -3,8 +3,6 @@ import { UserService } from './user.services';
 import status from 'http-status';
 import sendResponse from '../../../shared/sendResponse';
 import catchAsync from '../../../shared/catchAsync';
-import { filterData } from '../../../shared/filteringData';
-import pick from '../../../shared/pick';
 
 
 const createUser = catchAsync(async (req: Request, res: Response) => {
@@ -31,15 +29,19 @@ const getSingleUser = catchAsync(async (req: Request, res: Response) => {
 })
 
 const getAllUsers = catchAsync(async (req: Request, res: Response) => {
-    const paginationOptions = pick(req.query, filterData)
-    const filters = pick(req.query,['role', 'searchTerm'])
-    const result = await UserService.getAllUsers(paginationOptions, filters);
-    
+    const paginationOptions = {
+        page: req.query.page,
+        limit: req.query.limit, 
+        sortBy: req.query.limit,
+        sortOrder: req.query.sortOrder,
+    }
+    const data = await UserService.getAllUsers;
+    console.log(paginationOptions);
     sendResponse(res, {
         statusCode: status.OK,
         success: true, 
         message: 'retrived all users',
-        data: result.data,
+        data: 'something',
     })
 })
 

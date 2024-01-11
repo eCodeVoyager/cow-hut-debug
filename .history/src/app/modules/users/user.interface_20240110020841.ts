@@ -6,7 +6,7 @@ export type IUser = {
 }
 
 export type IUserFilters = {
-    searchTerm? : string;
+    searchTerm? = string;
 }
 
 export type UserModel = Model<IUser, object>

@@ -32,8 +32,7 @@ const getSingleUser = catchAsync(async (req: Request, res: Response) => {
 
 const getAllUsers = catchAsync(async (req: Request, res: Response) => {
     const paginationOptions = pick(req.query, filterData)
-    const filters = pick(req.query,['role', 'searchTerm'])
-    const result = await UserService.getAllUsers(paginationOptions, filters);
+    const result = await UserService.getAllUsers(paginationOptions);
     
     sendResponse(res, {
         statusCode: status.OK,

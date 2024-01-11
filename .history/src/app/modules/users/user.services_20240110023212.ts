@@ -55,7 +55,7 @@ const getAllUsers = async (
     sortCondition[sortBy] = sortOrder
   }
 
-  const result = await User.find({$and:userFilterAndSearchCondition}).sort(sortCondition).skip(skip).limit(limit)
+  const result = await User.find({userFilterAndSearchCondition}).sort(sortCondition).skip(skip).limit(limit)
   const total = await User.countDocuments()
   return {
     data: result,
