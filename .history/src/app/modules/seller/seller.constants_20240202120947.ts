@@ -1,0 +1,1 @@
+export const SellerSearchableFileds = ['name', 'budget', 'income', 'phoneNumber']
