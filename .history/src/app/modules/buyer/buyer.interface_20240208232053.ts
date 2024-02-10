@@ -13,11 +13,4 @@ export type IBuyer = {
     income: number,
 }
 
-export type BuyerModel = Model<IBuyer, Record<string, unknown>>;
-
-export type IBuyerFilter = {
-    name?: string, 
-    searchTerm?: string,
-    budget?: string, 
-    income?: string, 
-}
+export type BuyerModel = Model<IBuyer, Record<string>, unknown>

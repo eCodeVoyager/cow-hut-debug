@@ -5,8 +5,6 @@ import { Buyer } from './buyer.models'
 import { IGenericResponse } from '../../../shared/IGenericResponse'
 import { IpaginationOptions } from '../../../interface/IpaginationOptions'
 import { BuyerSearchableFields } from './buyer.constants'
-import { PaginationHelper } from '../../../helper/paginationHelper'
-import { SortOrder } from 'mongoose'
 
 const createBuyer = async (payload: string): Promise<IBuyer | null> => {
   const result = await Buyer.create(payload)
@@ -48,28 +46,7 @@ const getAllBuyer = async (
                 [field]: value
             }))
         })
-    };
-
-    // sorting features and pagination features
-    const {page, limit, sortBy, sortOrder, skip } = PaginationHelper.calculatePagination(paginationOptions);
-
-    const sortAndPaginationCondition : {[sortBy: string]: SortOrder} = {}
-    if (sortBy && sortOrder) {
-        sortAndPaginationCondition[sortBy] = sortOrder;
     }
-
-    const whereCondition = searchAndFiltersCondition.length > 0 ? {$and: searchAndFiltersCondition} : {};
-    const result = await Buyer.find(whereCondition).skip(skip).limit(limit).sort(sortAndPaginationCondition);
-    const total = await Buyer.countDocuments();
-    return {
-        meta: {
-            page, 
-            limit,
-            total
-        },
-        data: result
-    }
-
 }
 
 export const BuyerServices = {

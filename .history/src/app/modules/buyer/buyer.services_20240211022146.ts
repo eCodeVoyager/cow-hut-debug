@@ -60,15 +60,7 @@ const getAllBuyer = async (
 
     const whereCondition = searchAndFiltersCondition.length > 0 ? {$and: searchAndFiltersCondition} : {};
     const result = await Buyer.find(whereCondition).skip(skip).limit(limit).sort(sortAndPaginationCondition);
-    const total = await Buyer.countDocuments();
-    return {
-        meta: {
-            page, 
-            limit,
-            total
-        },
-        data: result
-    }
+
 
 }
 

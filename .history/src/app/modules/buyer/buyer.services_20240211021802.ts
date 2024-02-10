@@ -54,21 +54,7 @@ const getAllBuyer = async (
     const {page, limit, sortBy, sortOrder, skip } = PaginationHelper.calculatePagination(paginationOptions);
 
     const sortAndPaginationCondition : {[sortBy: string]: SortOrder} = {}
-    if (sortBy && sortOrder) {
-        sortAndPaginationCondition[sortBy] = sortOrder;
-    }
 
-    const whereCondition = searchAndFiltersCondition.length > 0 ? {$and: searchAndFiltersCondition} : {};
-    const result = await Buyer.find(whereCondition).skip(skip).limit(limit).sort(sortAndPaginationCondition);
-    const total = await Buyer.countDocuments();
-    return {
-        meta: {
-            page, 
-            limit,
-            total
-        },
-        data: result
-    }
 
 }
 

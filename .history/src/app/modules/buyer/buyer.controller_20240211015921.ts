@@ -24,6 +24,6 @@ const getAllBuyer = catchAsync(async (req: Request, res: Response, next: NextFun
     next();
 });
 
-export const BuyerController = {
+const BuyerController = {
     getAllBuyer, 
 }

@@ -70,6 +70,7 @@ const getAllBuyer = async (
         data: result
     }
 
+
 }
 
 export const BuyerServices = {

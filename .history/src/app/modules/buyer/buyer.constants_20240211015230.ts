@@ -1,0 +1,1 @@
+export const BuyerFilterableFields = ['searchTerm', 'name', 'budget', 'income'];

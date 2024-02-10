@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Request } from "express";
 import catchAsync from "../../../shared/catchAsync";
 import pick from "../../../shared/pick";
 import { BuyerFilterableFields } from "./buyer.constants";
@@ -6,24 +6,20 @@ import { paginationData } from "../../../shared/filteringData";
 import { BuyerServices } from "./buyer.services";
 import sendResponse from "../../../shared/sendResponse";
 import { OK } from "http-status";
-import { IBuyer } from "./buyer.interface";
 
 
 const getAllBuyer = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
-    const filters = pick(req.query, BuyerFilterableFields);
-    const paginationOptions = pick(req.query, paginationData);
+    const filters = pick(req.body, BuyerFilterableFields);
+    const paginationOptions = pick(req.body, paginationData);
     const result = await BuyerServices.getAllBuyer(filters, paginationOptions);
 
-    sendResponse<IBuyer[]>(res, {
-        success: true,
-        statusCode: OK,
-        message: "All Buyer has retrived sucessfully",
-        data: result.data, 
-        meta: result.meta,
-    });
-    next();
+    sendResponse(res, {
+        success: true, 
+        statusCode: OK, 
+        message: ""
+    })
 });
 
-export const BuyerController = {
+const BuyerController = {
     getAllBuyer, 
 }

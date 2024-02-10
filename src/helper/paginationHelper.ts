@@ -4,7 +4,7 @@ import {SortOrder} from 'mongoose'
 type IOptions = {
     page?: number, 
     limit?: number,
-    sortOrder: SortOrder, 
+    sortOrder?: SortOrder, 
     sortBy?: string, 
 }
 

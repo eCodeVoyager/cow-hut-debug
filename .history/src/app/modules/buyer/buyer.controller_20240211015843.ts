@@ -10,8 +10,8 @@ import { IBuyer } from "./buyer.interface";
 
 
 const getAllBuyer = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
-    const filters = pick(req.query, BuyerFilterableFields);
-    const paginationOptions = pick(req.query, paginationData);
+    const filters = pick(req.body, BuyerFilterableFields);
+    const paginationOptions = pick(req.body, paginationData);
     const result = await BuyerServices.getAllBuyer(filters, paginationOptions);
 
     sendResponse<IBuyer[]>(res, {
@@ -24,6 +24,6 @@ const getAllBuyer = catchAsync(async (req: Request, res: Response, next: NextFun
     next();
 });
 
-export const BuyerController = {
+const BuyerController = {
     getAllBuyer, 
 }
