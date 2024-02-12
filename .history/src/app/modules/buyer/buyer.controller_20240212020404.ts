@@ -49,10 +49,24 @@ const getAllBuyer = catchAsync(
     next()
   },
 )
-
+/* 
+const updateBuyer = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+        const id = req.params.id;
+    const updatedData = req.body
+    const result = await BuyerServices.updateBuyer(id, updatedData)
+    sendResponse<IBuyer>(res, {
+      statusCode: OK,
+      success: true,
+      message: 'Buyers information has updated successfully',
+      data: result,
+    }),
+      next()
+  },
+) */
 
 const updateBuyer = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
-    const { id } = req.params;
+    const id = req.params.id;
     const updatedData = req.body;
     const result = await BuyerServices.updateBuyer(id, updatedData);
     sendResponse<IBuyer>(res, {
@@ -60,27 +74,16 @@ const updateBuyer = catchAsync(async (req: Request, res: Response, next: NextFun
         success: true,
         message: 'Buyers information has updated successfully',
         data: result,
-    });
-    next();
-});
-
-
-const deleteBuyer = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
-    const { id } = req.params;
-    const result = await BuyerServices.deleteBuyer(id);
-    sendResponse<IBuyer>(res, {
-        statusCode: OK,
-        success: true,
-        message: 'Buyers has deleted successfully',
-        data: result,
-    });
-    next();
-});
+      }),
+        next()
+    },
+})
 
 export const BuyerController = {
   getAllBuyer,
   createBuyer,
   getSingleBuyer,
+  getAllBuyer,
   deleteBuyer,
   updateBuyer,
 }

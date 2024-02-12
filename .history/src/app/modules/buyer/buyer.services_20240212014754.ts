@@ -72,15 +72,13 @@ const getAllBuyer = async (
 
 }
 
-const updateBuyer = async(payload: Partial<IBuyer>, id:string) => {
+const updateBuyer = async(paylod: Partial<IBuyer>, id:string) => {
 
-  const result = await Buyer.findByIdAndUpdate({_id: id}, payload, { new: true });
-  return result;
+  const result = await 
 }
 
 const deleteBuyer = async (id: string) => {
-  const result = await Buyer.findByIdAndDelete(id);
-  return result;
+  
 }
 
 export const BuyerServices = {

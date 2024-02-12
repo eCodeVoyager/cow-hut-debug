@@ -1,5 +1,5 @@
-/* import { ISeller } from "../seller/seller.interface"
-import { Types } from "mongoose" */
+import { ISeller } from "../seller/seller.interface"
+import { Types } from "mongoose"
 
 export type ICow = {
     name: string, 
@@ -19,6 +19,6 @@ export type ICowFilters = {
     label?: string, 
     price?: number, 
     age?: number, 
-    location?: string, 
+    location:? string, 
     category?: string
 }
