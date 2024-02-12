@@ -15,7 +15,7 @@ const createCow = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: OK,
     success: true,
-    message: 'cow data has been created Succesfully',
+    message: 'Seller has been created Succesfully',
     data: result,
   })
   console.log(result, 'this is controllers data')
@@ -27,7 +27,7 @@ const getSingleCow = catchAsync(async (req: Request, res: Response) => {
   sendResponse(res, {
     statusCode: OK,
     success: true,
-    message: 'Cow data retrived successfully',
+    message: 'Seller retrived successfully',
     data: result,
   })
 })
@@ -41,7 +41,7 @@ const getAllcow = catchAsync(
     sendResponse<ICow[]>(res, {
       statusCode: OK,
       success: true,
-      message: 'information of cow retrived successfully',
+      message: 'Sellers retrived successfully',
       data: result.data,
       meta: result.meta,
     })
@@ -57,7 +57,7 @@ const updateCow = catchAsync(
     sendResponse<ICow>(res, {
       statusCode: OK,
       success: true,
-      message: ' informations about has updated successfully',
+      message: 'Sellers information has updated successfully',
       data: result,
     }),
       next()
@@ -71,7 +71,7 @@ const deleteCow = catchAsync(
     sendResponse<ICow>(res, {
       statusCode: OK,
       success: true,
-      message: 'Cow deleted Successfully',
+      message: 'Seller deleted Successfully',
       data: result,
     }),
       next()

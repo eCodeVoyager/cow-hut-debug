@@ -1,21 +1,15 @@
 import { OK } from 'http-status'
 import catchAsync from '../../../shared/catchAsync'
 import sendResponse from '../../../shared/sendResponse'
-import { ICow } from './cow.interface'
-import { NextFunction, Request, Response } from 'express'
-import pick from '../../../shared/pick'
-import { CowServices } from './cow.services'
-import { cowFilterableFields } from './cow.constants'
-import { paginationData } from '../../../shared/filteringData'
 
 const createCow = catchAsync(async (req: Request, res: Response) => {
   const { ...data } = req.body
-  const result = await CowServices.createCow(data)
+  const result = await SellerServices.createSeller(data)
 
   sendResponse(res, {
     statusCode: OK,
     success: true,
-    message: 'cow data has been created Succesfully',
+    message: 'Seller has been created Succesfully',
     data: result,
   })
   console.log(result, 'this is controllers data')
@@ -23,11 +17,11 @@ const createCow = catchAsync(async (req: Request, res: Response) => {
 
 const getSingleCow = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id
-  const result = await CowServices.getSingleCow(id)
+  const result = await SellerServices.getSingleSeller(id)
   sendResponse(res, {
     statusCode: OK,
     success: true,
-    message: 'Cow data retrived successfully',
+    message: 'Seller retrived successfully',
     data: result,
   })
 })
@@ -35,13 +29,13 @@ const getSingleCow = catchAsync(async (req: Request, res: Response) => {
 const getAllcow = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const paginationOptions = pick(req.query, paginationData)
-    const filters = pick(req.query, cowFilterableFields)
-    const result = await CowServices.getAllCow(paginationOptions, filters)
+    const filters = pick(req.query, sellerFilterableFields)
+    const result = await SellerServices.getAllSeller(paginationOptions, filters)
 
-    sendResponse<ICow[]>(res, {
+    sendResponse<ISeller[]>(res, {
       statusCode: OK,
       success: true,
-      message: 'information of cow retrived successfully',
+      message: 'Sellers retrived successfully',
       data: result.data,
       meta: result.meta,
     })
@@ -53,11 +47,11 @@ const updateCow = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const id = req.params.id
     const updatedData = req.body
-    const result = await CowServices.updateCow(id, updatedData)
-    sendResponse<ICow>(res, {
+    const result = await SellerServices.updateSeller(id, updatedData)
+    sendResponse<ISeller>(res, {
       statusCode: OK,
       success: true,
-      message: ' informations about has updated successfully',
+      message: 'Sellers information has updated successfully',
       data: result,
     }),
       next()
@@ -67,11 +61,11 @@ const updateCow = catchAsync(
 const deleteCow = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const id = req.params.id
-    const result = await CowServices.deleteCow(id)
-    sendResponse<ICow>(res, {
+    const result = await SellerServices.deleteSeller(id)
+    sendResponse<ISeller>(res, {
       statusCode: OK,
       success: true,
-      message: 'Cow deleted Successfully',
+      message: 'Seller deleted Successfully',
       data: result,
     }),
       next()

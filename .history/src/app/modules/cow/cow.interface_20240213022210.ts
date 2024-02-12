@@ -15,7 +15,7 @@ export type ICow = {
    /*  seller: Types.ObjectId | ISeller,  */
 }
 
-export type CowModel = Model<ICow, Record<string, unknown>>;
+export type CowModel = Model<ICow, Record<string, unknown>>
 
 export type ICowFilters = {
     searchTerm?: string, 

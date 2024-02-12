@@ -1,32 +1,23 @@
-import httpStatus, { BAD_REQUEST } from "http-status";
-import ApiError from "../../../errors/apiError";
-import { ICow, ICowFilters } from "./cow.interface";
-import { Cow } from "./cow.models";
-import { IpaginationOptions } from "../../../interface/IpaginationOptions";
-import { IGenericResponse } from "../../../shared/IGenericResponse";
-import { cowSearchableFields } from "./cow.constants";
-import { PaginationHelper } from "../../../helper/paginationHelper";
-import { SortOrder } from "mongoose";
 
 
 
-const createCow = async (payload: ICow): Promise<ICow> => {
-    const result = await Cow.create(payload);
+const createCow = async (payload: ISeller): Promise<ISeller> => {
+    const result = await Seller.create(payload);
     if (!result) {
         throw new ApiError(httpStatus.BAD_REQUEST, 'failed to create seller');
     }
     return result;
 }
 
-const getSingleCow = async (id: string): Promise<ICow | null> => {
-    const result = await Cow.findById(id);
+const getSingleSeller = async (id: string): Promise<ISeller | null> => {
+    const result = await Seller.findById(id);
     if (!result) {
         throw new ApiError(BAD_REQUEST, 'Seller did not found');
     }
     return result;
 }
 
-const getAllCow = async (paginationOptions: IpaginationOptions, filters: ICowFilters): Promise<IGenericResponse<ICow[]>> => {
+const getAllSeller = async (paginationOptions: IpaginationOptions, filters: ISellerFilters): Promise<IGenericResponse<ISeller[]>> => {
 
     //search and pagination start from here
     const {searchTerm, ...filtersData} = filters;
@@ -35,7 +26,7 @@ const getAllCow = async (paginationOptions: IpaginationOptions, filters: ICowFil
     // search term logic
     if (searchTerm) {
         searchAndFilterCondition.push({
-            $or: cowSearchableFields.map((field) => ({
+            $or: SellerSearchableFileds.map((field) => ({
                 [field]: {
                     $regex: searchTerm,
                     $options: 'i',
@@ -65,8 +56,8 @@ const getAllCow = async (paginationOptions: IpaginationOptions, filters: ICowFil
     // where condition starts from here
     const whereCondition = searchAndFilterCondition.length > 0 ? { $and: searchAndFilterCondition } : {};
 
-    const result = await  Cow.find(whereCondition).sort(sortCondition).skip(skip).limit(limit);
-    const total =  await Cow.countDocuments();
+    const result = await  Seller.find(whereCondition).sort(sortCondition).skip(skip).limit(limit);
+    const total =  await Seller.countDocuments();
     return {
         meta: {
             page, 
@@ -78,20 +69,20 @@ const getAllCow = async (paginationOptions: IpaginationOptions, filters: ICowFil
 }
 
 
-const updateCow = async (id: string, payload:Partial<ICow>) => {
-    const result = await Cow.findByIdAndUpdate({ _id: id }, payload, {new: true});
+const updateSeller = async (id: string, payload:Partial<ISeller>) => {
+    const result = await Seller.findByIdAndUpdate({ _id: id }, payload, {new: true});
     return result;
 } 
 
 const deleteCow = async (id:string) => {
-    const result = await Cow.findByIdAndDelete(id);
+    const result = await Seller.findByIdAndDelete(id);
     return result;
 }
 
 
 export const CowServices = {
     createCow,
-    getSingleCow,
+    getSinleCow,
     getAllCow,
     updateCow, 
     deleteCow

@@ -1,6 +1,5 @@
-
-import { Schema, model } from 'mongoose'
-import { CowModel, ICow } from './cow.interface'
+import { Timestamp } from 'mongodb'
+import { Schema } from 'mongoose'
 
 const cowSchema = new Schema(
   {
@@ -65,5 +64,3 @@ const cowSchema = new Schema(
     },
   },
 )
-
-export const Cow = model<ICow, CowModel>('Cows', cowSchema);
