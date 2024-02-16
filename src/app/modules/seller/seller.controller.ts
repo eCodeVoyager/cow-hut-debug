@@ -10,8 +10,18 @@ import { sellerFilterableFields } from './seller.constants'
 
 const createSeller = catchAsync(async (req: Request, res: Response) => {
   const { ...data } = req.body
+  const { seller } = data
+  const { phoneNumber, budget, income, address, name } = seller // mongodb direct data ney na.  destructuring kore nite hobe....
+  const { firstName, lastName } = name
   console.log('this is seller data', data, req.body)
-  const result = await SellerServices.createSeller(data)
+  const result = await SellerServices.createSeller({
+    name: { firstName, lastName },
+    address,
+    phoneNumber,
+    budget,
+    income,
+    //password model eo nai abar validate o koren nai req e dia lav ki? 
+  })
 
   sendResponse(res, {
     statusCode: OK,
